@@ -1,13 +1,13 @@
 const qwerty = document.querySelector("#qwerty");
 const phase = document.querySelector("#phrase");
-const btn_reset = document.querySelector(".btn_reset");
+const btn__reset = document.querySelector(".btn__reset");
 const overlay = document.querySelector("#overlay"); 
 
 let missed = 0; 
 
 //Attach an event listener to the “Start Game” button to hide the start screen overlay
 
-btn_reset.addEventListener('click', () => {
+btn__reset.addEventListener('click', () => {
     overlay.style.display = 'none'; 
 });
 
