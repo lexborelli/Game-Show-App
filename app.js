@@ -1,15 +1,15 @@
-const qwerty = document.getElementById('qwerty');
-const phase = document.getElementById('phrase');
-const resetButton = document.getElementsByClassName('.btn_reset');
-const overlay = document.getElementById("overlay"); 
+const qwerty = document.querySelector("#qwerty");
+const phase = document.querySelector("#phrase");
+const btn_reset = document.querySelector(".btn_reset");
+const overlay = document.querySelector("#overlay"); 
 
 let missed = 0; 
 
 //Attach an event listener to the “Start Game” button to hide the start screen overlay
 
-resetButton.addEventListener ('click', () => {
-    overlay.style.display = "none"; 
-})
+btn_reset.addEventListener ('click', () => {
+    overlay.style.display = 'none'; 
+});
 
 //create an array named phrases & loop
 
@@ -57,6 +57,6 @@ qwerty.addEventListener ('click', (e)=> {
         e.target.classList.add("chosen"); 
         e.target.disabled = true; 
 
-        let checkLetter = letterFound
+        
     }
 })
