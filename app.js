@@ -7,7 +7,7 @@ let missed = 0;
 
 //Attach an event listener to the “Start Game” button to hide the start screen overlay
 
-btn_reset.addEventListener ('click', () => {
+btn_reset.addEventListener('click', () => {
     overlay.style.display = 'none'; 
 });
 
