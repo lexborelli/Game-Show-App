@@ -13,26 +13,32 @@ btn__reset.addEventListener('click', () => {
 
 //create an array named phrases & loop
 
-const phrase = ['Easier said than done' , 'Lose your marbles' , 'Give it a shot' , 'Never in a million years' , 'keep your chin up' , 'That is the last straw']; 
+const phrases = [
+    'Easier said than done',
+    'Lose your marbles',
+    'Give it a shot',
+    'Never in a million years',
+    'keep your chin up',
+    'That is the last straw'
+]; 
 
 //create a random phrase function
-function getRandomPhraseAsArray(arr) {
-    const randomOne = Math.floor(Math.random() * arr.length); 
-    return arr[randomOne].split (''); 
+function getRandomPhraseAsArray(arr){
+    const randomOne = phrases[Math.floor(Math.random()*phrases.length)]; 
+    return randomOne.split(''); 
 }
 
-const randomPhrase = getRandomPhraseAsArray(phrases); 
-
-function addPhraseToDisplay(arr) {
-    for(let i = 0; i < arr.length; i++) {
+const addPhraseToDisplay(arr){
+    for (let i = 0; i < arr.length; i++) {
         const li = document.createElement('li');
         li.textContent = arr[i]; 
-        if(arr[i] === ' ') {
-            li.className = 'space'; 
+        phrases.appendChild('li');
+
+        if (phrases[i] === ' ') {
+            li.className.add('letter'); 
         } else {
-            li.className = 'letter'; 
+            li.className.add('space'); 
         }
-        phrase.append(li);
     }
 }
 
@@ -40,8 +46,8 @@ const phraseArray = getRandomPhraseAsArray(phrases);
 addPhrasetoDisplay(phraseArray); 
 
 //check letter function 
-const checkLetter= (button) => {
-    let li = document.getElementsByClassName("letter"); 
+const checkLetter = (button) => {
+    let li = document.querySelectorAll(".letter"); 
     let noMatch = null; 
     for (let i = 0; i < checkLetter.length; i++) {
         if(button.textContent === li[i].textContent.toLowerCase()) {
