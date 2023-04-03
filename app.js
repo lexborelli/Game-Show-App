@@ -1,68 +1,83 @@
-const qwerty = document.querySelector("#qwerty");
-const phase = document.querySelector("#phrase");
-const btn__reset = document.querySelector(".btn__reset");
-const overlay = document.querySelector("#overlay"); 
+    const qwerty = document.querySelector("#qwerty");
 
-let missed = 0; 
+    const phrase = document.querySelector("#phrase");
 
-//Attach an event listener to the “Start Game” button to hide the start screen overlay
+    const btn__reset = document.querySelectorAll(".btn__reset");
 
-btn__reset.addEventListener('click', () => {
-    overlay.style.display = 'none'; 
-});
+    const overlay = document.querySelector("#overlay"); 
 
-//create an array named phrases & loop
+    const letter = document.querySelectorAll(".letter");
 
-const phrases = [
-    'Easier said than done',
-    'Lose your marbles',
-    'Give it a shot',
-    'Never in a million years',
-    'keep your chin up',
-    'That is the last straw'
-]; 
+    let missed = 0; 
 
-//create a random phrase function
-function getRandomPhraseAsArray(arr){
-    const randomOne = phrases[Math.floor(Math.random()*phrases.length)]; 
-    return randomOne.split(''); 
-}
+    const startButton = document.getElementById('start-btn');
 
-const addPhraseToDisplay(arr){
-    for (let i = 0; i < arr.length; i++) {
-        const li = document.createElement('li');
-        li.textContent = arr[i]; 
-        phrases.appendChild('li');
+    //Attach an event listener to the “Start Game” button to hide the start screen overlay
 
-        if (phrases[i] === ' ') {
-            li.className.add('letter'); 
-        } else {
-            li.className.add('space'); 
+    startButton.addEventListener('click', e => {
+        if (startButton) {
+        overlay.style.display = 'none'; 
         }
-    }
-}
+    });
 
-const phraseArray = getRandomPhraseAsArray(phrases); 
-addPhrasetoDisplay(phraseArray); 
+    //create an array named phrases & loop
 
-//check letter function 
-const checkLetter = (button) => {
-    let li = document.querySelectorAll(".letter"); 
-    let noMatch = null; 
-    for (let i = 0; i < checkLetter.length; i++) {
-        if(button.textContent === li[i].textContent.toLowerCase()) {
-            li[i].classList.add("show"); 
-            noMatch = li[i].textContent;
+    const phrases = [
+        'Easier said than done',
+        'Lose your marbles',
+        'Give it a shot',
+        'Never in a million years',
+        'keep your chin up',
+        'That is the last straw'
+    ]; 
+
+    //create a random phrase function
+    function getRandomPhraseAsArray(arr){
+        let randomOne = phrases[Math.floor(Math.random()*phrases.length)]; 
+        randomOne = randomOne.split(''); 
+        return randomeOne;
+    };
+
+    function addPhraseToDisplay(arr){
+        for (let i = 0; i < arr.length; i++) {
+            const newLi = document.createElement('li');
+            newLi.textContent = arr[i]; 
+            phrase.appendChild('newLi');
+
+            if (phrases[i] !== ' ') {
+                newLi.classList.add('letter'); 
+            } else {
+                newLi.classList.add('space'); 
+            };
+        };
+    };
+
+    const phraseArray = getRandomPhraseAsArray(phrases); 
+    addPhraseToDisplay(phraseArray); 
+
+    //check letter function 
+    const checkLetter(button) { 
+        let noMatch = null; 
+        for (let i = 0; i < letter.length; i++) {
+            if(button.textContent === letter[i].textContent.toLowerCase()) {
+                noMatch = letter[i];
+                noMatch.classList.add('show');
+            }
         }
-    }
-    return noMatch; 
-}
+        return noMatch; 
+    };
 
-qwerty.addEventListener ('click', (e)=> {
-    if (e.target.tagName === "BUTTON") {
-        e.target.classList.add("chosen"); 
-        e.target.disabled = true; 
+    qwerty.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON') {
+            e.target.classList.add('chosen'); 
+            e.target.setAttribute('disabled', true); 
 
-        
-    }
-})
+            let letterFound = checkLetter(qwerty);
+                if (letterFound = null) {
+                let attempts = document.querySelector('.tries img');
+                let letterFound = checkLetter(e.target);
+
+                if(letterFound === null)
+                }
+        }
+    });
