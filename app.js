@@ -1,4 +1,4 @@
-    const qwerty = document.querySelector("#qwerty");
+    const qwerty = document.getElementById("#qwerty");
 
     const phrase = document.querySelector("#phrase");
 
@@ -10,14 +10,11 @@
 
     let missed = 0; 
 
-    const startButton = document.getElementById('start-btn');
-
     //Attach an event listener to the “Start Game” button to hide the start screen overlay
 
-    startButton.addEventListener('click', e => {
-        if (startButton) {
-        overlay.style.display = 'none'; 
-        }
+   btn__reset.addEventListener('click', () => {
+        document.getElementById('overlay').style.display = 'none'; 
+
     });
 
     //create an array named phrases & loop
