@@ -33,7 +33,7 @@
 
     //create a random phrase function
     function getRandomPhraseAsArray(arr){
-        let randomOne = phrases[Math.floor(Math.random()*phrases.length)]; 
+        let phrase = phrases[Math.floor(Math.random()*phrases.length)]; 
         randomOne = randomOne.split(''); 
         return randomeOne;
     };
@@ -56,7 +56,7 @@
     addPhraseToDisplay(phraseArray); 
 
     //check letter function 
-    const checkLetter(button) { 
+    const checkLetter(button) => { 
         let noMatch = null; 
         for (let i = 0; i < letter.length; i++) {
             if(button.textContent === letter[i].textContent.toLowerCase()) {
