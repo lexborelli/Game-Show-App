@@ -1,20 +1,19 @@
-    const qwerty = document.getElementById("#qwerty");
+    const qwerty = document.querySelector("#qwerty");
 
-    const phrase = document.querySelector("#phrase");
+    const phrase = document.querySelector("#phrase ul");
 
     const resetButton = document.querySelectorAll(".btn__reset");
 
     const overlay = document.querySelector("#overlay"); 
-
 
     let missed = 0; 
 
     //Attach an event listener to the “Start Game” button to hide the start screen overlay
 
    resetButton.addEventListener('click', () => {
-       document.getElementById('overlay').style.display = 'none'; 
+           overlay.style.display = 'none';
 
-    });
+       });
 
     // An array of phrases to choose from
 
@@ -37,8 +36,8 @@
 
     function addPhraseToDisplay (arr) {
         for (let i = 0; i < arr.length; i++) {
-            const li = document.createElement('li'); 
-            li.textContent = arr[i]; 
+            const liList = document.createElement('liList'); 
+            liList.textContent = arr[i]; 
             phrase.appendChild(li); 
             if (li.textContent !== ' ') {
                 li.className = 'letter';
