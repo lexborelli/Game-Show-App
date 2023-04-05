@@ -37,15 +37,43 @@
         for (let i = 0; i < arr.length; i++) {
             const liList = document.createElement('liList'); 
             liList.textContent = arr[i]; 
-            phrase.appendChild(li); 
-            if (li.textContent !== ' ') {
-                li.className = 'letter';
+            phrase.appendChild(liList); 
+            if (arr[i] !== ' ') {
+                liList.className = 'letter';
             } else {
-                li.className = 'letter';
+                liList.className = 'space';
             }
         }
-    }
+    };
 
     addPhraseToDisplay(phraseArray); 
 
 //check for letter 
+    function checkLetter(button) {
+        let match = null;
+        const letter = document.querySelectorAll('.letter');
+            for (i = 0; i < letter.length; i ++) {
+                if (letter[i].textContent.toLowerCase() === button.textContent) {
+                    match = letter[i]; 
+                    match.classList.add('show'); 
+                }   
+                }
+                return match; 
+            };
+
+    qwerty.addEventListener('click', (e) => {
+        if(e.target.tagName === 'BUTTON') {
+            e.target.classList.add('chosen'); 
+            e.target.disabled = true;
+
+            const letterFound = checkLetter(e.target); 
+            if(letterFound === null) {
+                const hearts = document.querySelectorAll('.tries img');
+                    hearts[missed].src = "images/lostHeart.png"; 
+                    missed++;
+            }
+            }
+            });
+
+
+    
