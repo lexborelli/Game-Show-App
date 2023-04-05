@@ -1,8 +1,8 @@
     const qwerty = document.querySelector("#qwerty");
 
-    const phrase = document.querySelector("#phrase ul");
+    const phrase = document.querySelector("#phrase");
 
-    const resetButton = document.querySelectorAll(".btn__reset");
+    const resetButton = document.querySelector(".btn__reset");
 
     const overlay = document.querySelector("#overlay"); 
 
@@ -12,7 +12,6 @@
 
    resetButton.addEventListener('click', () => {
            overlay.style.display = 'none';
-
        });
 
     // An array of phrases to choose from
