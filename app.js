@@ -61,6 +61,7 @@
                 return match; 
             };
 
+            
     qwerty.addEventListener('click', (e) => {
         if(e.target.tagName === 'BUTTON') {
             e.target.classList.add('chosen'); 
@@ -69,11 +70,27 @@
             const letterFound = checkLetter(e.target); 
             if(letterFound === null) {
                 const hearts = document.querySelectorAll('.tries img');
-                    hearts[missed].src = "images/lostHeart.png"; 
+                    hearts[missed].src = 'images/lostHeart.png'; 
                     missed++;
+             }
             }
+            checkWin(); 
+         });
+
+         function checkWin() {
+            const letterLi = document.querySelectorAll('.letter');
+            const show = document.querySelectorAll('.show'); 
+            const titleMessage = document.querySelector('.title');
+                
+                if(letterLi.length === show.length) {
+                    overlay.classList.add('win'); 
+                    titleMessage.textContent = "You're a Winner!"; 
+                    overlay.style.display = 'flex';
+            } else if(missed < 4) {
+                overlay.classList.add('lose'); 
+                titleMessage.textContent = "Oh no, You've lost!";
+                overlay.style.display = 'flex'; 
             }
-            });
-
-
+        };
+       
     
