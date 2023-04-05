@@ -86,7 +86,7 @@
                     overlay.classList.add('win'); 
                     titleMessage.textContent = "You're a Winner!"; 
                     overlay.style.display = 'flex';
-            } else if(missed < 4) {
+            } else if(missed > 4) {
                 overlay.classList.add('lose'); 
                 titleMessage.textContent = "Oh no, You've lost!";
                 overlay.style.display = 'flex'; 
