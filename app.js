@@ -35,13 +35,14 @@
 
     function addPhraseToDisplay (arr) {
         for (let i = 0; i < arr.length; i++) {
-            const liList = document.createElement('liList'); 
-            liList.textContent = arr[i]; 
-            phrase.appendChild(liList); 
+            const li = document.createElement('li'); 
+            const ul = phrase.children[0]; 
+            li.textContent = arr[i]; 
+            ul.appendChild(li); 
             if (arr[i] !== ' ') {
-                liList.className = 'letter';
+                li.className = 'letter';
             } else {
-                liList.className = 'space';
+                li.className = 'space';
             }
         }
     };
